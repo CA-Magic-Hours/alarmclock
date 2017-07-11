@@ -10,15 +10,15 @@ function checkTime(i) {
     var hour = currentTime.getHours();
     var minute = currentTime.getMinutes();
     var second = currentTime.getSeconds();
+
+    // This code here is making some content available globally - by creating a property on the global object (window) and then setting the value of that new property.
+    // Specifically, we want to know what the raw hours value is, because computers use military time, and we are using a 12-hour clock. Our alarm values are ALSO going to be in 12 hour format. We want both the adjusted and unadjusted hours, and which we use will depend on the sitation.
     window.rawHours = hour;
-    window.hours = hour;
 
     if (hour > 12) {
       hour = hour - 12;
-      window.hours = hour;
     } else if (hour === 0) {
       hour = 12;
-      window.hours = hour;
     };
 
     minute = checkTime(minute);
