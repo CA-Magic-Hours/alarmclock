@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Clock in JavaScript</title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<!-- time displayed here -->
+	<div id="time"></div>
+	<select name="hours" id="hoursDropdown"></select>
+	<select name="minutes" id="minutesDropdown"></select>
+	<select name="ampm" id="ampm">
+		<option value="AM">AM</option>
+		<option value="PM">PM</option>
+	</select>
+	<audio id="ding">
+		<source src="sounds/ding.wav" type="audio/wav">
+	</audio>
+	<button id="btn">Set Alarm</button>
+	<script src="js/main.js"></script>
+	<script src="js/clock.js"></script>
+</body>
+</html>
