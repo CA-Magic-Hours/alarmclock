@@ -9,8 +9,6 @@ function alarm() {
   var ampm = document.getElementById('ampm').value;
   var userHours = parseInt(hoursDropdown.value);
   var userMins = parseInt(minutesDropdown.value);
-  var clockHours = window.rawHours;
-  var clockMinutes = parseInt(window.minutes);
 
   var minMessage = (userMins < 10) ? '0' + userMins : userMins;
 
@@ -19,8 +17,13 @@ function alarm() {
   // What does this do, and why is it here?
   // What does it add, and more specifically, what does it FIX from the original version (old.js).
   return (function alarmCheck() {
+    var clockHours = window.rawHours;
+    var clockMinutes = parseInt(window.minutes);
+    var a = 0;
+    
+    console.log();
     if (ampm === 'PM') {
-      userHours = userHours + 12;
+      a = userHours + 12;
       if (userHours === 24) {
         userHours = 12;
       };
@@ -29,8 +32,9 @@ function alarm() {
         userHours = 0;
       };
     };
-
-    if (clockHours === userHours && clockMinutes === userMins) {
+    console.log(a, clockHours);
+    console.log(clockMinutes, userMins);
+    if (clockHours === a && clockMinutes === userMins) {
       document.getElementById('message').textContent = 'DONE!';
       ding.play();
       return;
